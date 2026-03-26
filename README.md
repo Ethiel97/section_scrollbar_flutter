@@ -2,9 +2,7 @@
 
 ![section_scrollbar demo](assets/demo.gif)
 
-```md
-[Watch the full demo video](https://pub-327a9256807e43b5ae26f24376d313e1.r2.dev/section_scrollbar_demo.mp4)
-```
+[Full demo video here](https://pub-327a9256807e43b5ae26f24376d313e1.r2.dev/section_scrollbar_demo.mp4)
 
 # section_scrollbar
 
@@ -55,10 +53,6 @@ rounded badge containing:
 - Immutable public state for custom builders and advanced effects
 - Pure Flutter implementation for mobile, web, and desktop
 
-
-
-
-
 ## Installation
 
 ```sh
@@ -74,45 +68,49 @@ import 'package:section_scrollbar/section_scrollbar.dart';
 final sectionController = SectionScrollbarController();
 final scrollController = ScrollController();
 
-SectionScrollbarLayout(
-  controller: sectionController,
-  scrollController: scrollController,
-  sections: const [
-    SectionData(
-      id: 'intro',
-      label: 'Intro',
-      icon: Icons.waving_hand_rounded,
-    ),
-    SectionData(
-      id: 'work',
-      label: 'Work',
-      icon: Icons.work_outline_rounded,
-    ),
-    SectionData(
-      id: 'metrics',
-      label: 'Metrics',
-      icon: Icons.query_stats_rounded,
-    ),
-    SectionData(
-      id: 'contact',
-      label: 'Contact',
-      icon: Icons.mail_outline_rounded,
-    ),
-  ],
-  config: const SectionScrollbarConfig(
-    activationStrategy: SectionActivationStrategy.quarterViewport,
-  ),
-  child: SingleChildScrollView(
-    controller: scrollController,
-    child: Column(
-      children: const [
-        SectionAnchor(id: 'intro', child: IntroSection()),
-        SectionAnchor(id: 'work', child: WorkSection()),
-        SectionAnchor(id: 'metrics', child: MetricsSection()),
-        SectionAnchor(id: 'contact', child: ContactSection()),
-      ],
-    ),
-  ),
+SectionScrollbarLayout
+(
+controller: sectionController,
+scrollController: scrollController,
+sections: const [
+SectionData(
+id: 'intro',
+label: 'Intro',
+icon: Icons.waving_hand_rounded,
+),
+SectionData(
+id: 'work',
+label: 'Work',
+icon: Icons.work_outline_rounded,
+),
+SectionData(
+id: 'metrics',
+label: 'Metrics',
+icon: Icons.query_stats_rounded,
+),
+SectionData(
+id: 'contact',
+label: 'Contact',
+icon: Icons.mail_outline_rounded,
+),
+],
+config: const SectionScrollbarConfig(
+activationStrategy: SectionActivationStrategy.quarterViewport,
+),
+child: SingleChildScrollView(
+controller: scrollController,
+child: Column(
+children: const [
+SectionAnchor(id: 'intro', child: IntroSection()),
+SectionAnchor(id: 'work', child: WorkSection()),
+SectionAnchor(id: 'metrics', child: MetricsSection()),
+SectionAnchor(id: 'contact', child: ContactSection()),
+]
+,
+)
+,
+)
+,
 );
 ```
 
@@ -123,30 +121,34 @@ SectionScrollbarLayout(
 3. Place everything inside `SectionScrollbarLayout`.
 4. The controller measures anchors after layout.
 5. On scroll, the controller resolves the active section and computes:
-   - page progress
-   - progress within the active section
-   - thumb size
-   - thumb offset
-   - active badge payload
+    - page progress
+    - progress within the active section
+    - thumb size
+    - thumb offset
+    - active badge payload
 6. The default scrollbar renders a subtle track, a thumb, and a floating badge
    while scrolling.
 
 ## Public API
 
 ### `SectionData`
+
 Declares a logical section.
 
 Fields:
+
 - `id`
 - `label`
 - `icon`
 - `weight`
 
 ### `SectionAnchor`
+
 Wraps each measured content section and registers it with the nearest
 `SectionScrollbarLayout`.
 
 ### `SectionScrollbarController`
+
 The main `ChangeNotifier` that owns:
 
 - section registration
@@ -156,9 +158,11 @@ The main `ChangeNotifier` that owns:
 - immutable `state`
 
 ### `SectionScrollbarConfig`
+
 Controls behavior and default layout values.
 
 Key fields:
+
 - `activationStrategy`
 - `scrollAnimationDuration`
 - `scrollAnimationCurve`
@@ -171,9 +175,11 @@ Key fields:
 - `alwaysShowScrollbar`
 
 ### `SectionScrollbarState`
+
 Immutable derived state exposed by the controller.
 
 Key fields:
+
 - `activeSectionId`
 - `activeSectionLabel`
 - `activeSectionIcon`
@@ -186,15 +192,19 @@ Key fields:
 - `isScrollActive`
 
 ### `SectionScrollbarVisualItem`
+
 Per-section render data for custom overlays and builders.
 
 ### `SectionScrollbarLayout`
+
 Wraps your scroll view and places the overlay scrollbar on top of it.
 
 ### `SectionScrollbar`
+
 Generic scrollbar shell for custom track/thumb/badge builders.
 
 ### `DefaultSectionScrollbar`
+
 Default implementation that renders:
 
 - a subtle vertical track
@@ -206,10 +216,12 @@ Default implementation that renders:
 You can customize at two levels:
 
 ### 1. Config-only customization
+
 Use `SectionScrollbarConfig` when you only want to tune sizing, animation, or
 visibility behavior.
 
 ### 2. Full overlay customization
+
 Pass `scrollbarBuilder` to `SectionScrollbarLayout` and render your own overlay
 from the controller state.
 

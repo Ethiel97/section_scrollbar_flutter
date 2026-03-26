@@ -1,3 +1,10 @@
+/// A section-aware custom scrollbar package for Flutter.
+///
+/// The package provides section models, anchors, a controller, and overlay
+/// widgets for rendering a custom scrollbar with a floating current-section
+/// badge.
+library;
+
 export 'src/controller/section_scrollbar_controller.dart';
 export 'src/models/section_data.dart';
 export 'src/models/section_scrollbar_config.dart';
