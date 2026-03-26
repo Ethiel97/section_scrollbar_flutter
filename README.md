@@ -20,12 +20,25 @@ its own thumb + current-section chip on top of a normal `SingleChildScrollView`.
 
 ## Why this package exists
 
-Long portfolio, documentation, and editorial pages often need more context than
-a plain thumb can provide. A normal scrollbar tells the user where they are in
-the document, but not *what* they are looking at.
+Many scroll experiences are organized into meaningful sections, but a standard
+scrollbar only communicates raw position. In practice, users often need both:
+where they are in the scroll range and which logical part of the content they
+are currently viewing.
 
-`section_scrollbar` keeps the familiar scrollbar interaction model and adds a
-lightweight, rounded badge containing:
+`section_scrollbar` is a general-purpose primitive for any vertically scrolling
+surface with structured sections, including:
+
+- landing pages
+- portfolio sites
+- documentation pages
+- dashboards
+- reports
+- settings screens
+- onboarding flows
+- long-form content experiences
+
+It keeps the familiar scrollbar interaction model and adds a lightweight,
+rounded badge containing:
 
 - the active section label
 - the active section icon, if provided
