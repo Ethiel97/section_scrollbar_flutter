@@ -8,6 +8,8 @@
 
 # section_scrollbar
 
+[![pub package](https://img.shields.io/pub/v/section_scrollbar.svg)](https://pub.dev/packages/section_scrollbar)
+
 `section_scrollbar` is a pure Flutter package for building a section-aware
 custom scrollbar that shows a floating badge for the current section while the
 user scrolls.
