@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1+1
+
+- Expanded the example app with more tracked sections and denser section cards.
+- Refined README examples and package documentation formatting.
+
 ## 0.1.1
 
 - Added an optimized demo GIF for pub.dev package screenshots and README preview.

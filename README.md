@@ -68,49 +68,45 @@ import 'package:section_scrollbar/section_scrollbar.dart';
 final sectionController = SectionScrollbarController();
 final scrollController = ScrollController();
 
-SectionScrollbarLayout
-(
-controller: sectionController,
-scrollController: scrollController,
-sections: const [
-SectionData(
-id: 'intro',
-label: 'Intro',
-icon: Icons.waving_hand_rounded,
-),
-SectionData(
-id: 'work',
-label: 'Work',
-icon: Icons.work_outline_rounded,
-),
-SectionData(
-id: 'metrics',
-label: 'Metrics',
-icon: Icons.query_stats_rounded,
-),
-SectionData(
-id: 'contact',
-label: 'Contact',
-icon: Icons.mail_outline_rounded,
-),
-],
-config: const SectionScrollbarConfig(
-activationStrategy: SectionActivationStrategy.quarterViewport,
-),
-child: SingleChildScrollView(
-controller: scrollController,
-child: Column(
-children: const [
-SectionAnchor(id: 'intro', child: IntroSection()),
-SectionAnchor(id: 'work', child: WorkSection()),
-SectionAnchor(id: 'metrics', child: MetricsSection()),
-SectionAnchor(id: 'contact', child: ContactSection()),
-]
-,
-)
-,
-)
-,
+SectionScrollbarLayout(
+  controller: sectionController,
+  scrollController: scrollController,
+  sections: const [
+    SectionData(
+      id: 'intro',
+      label: 'Intro',
+      icon: Icons.waving_hand_rounded,
+    ),
+    SectionData(
+      id: 'work',
+      label: 'Work',
+      icon: Icons.work_outline_rounded,
+    ),
+    SectionData(
+      id: 'metrics',
+      label: 'Metrics',
+      icon: Icons.query_stats_rounded,
+    ),
+    SectionData(
+      id: 'contact',
+      label: 'Contact',
+      icon: Icons.mail_outline_rounded,
+    ),
+  ],
+  config: const SectionScrollbarConfig(
+    activationStrategy: SectionActivationStrategy.quarterViewport,
+  ),
+  child: SingleChildScrollView(
+    controller: scrollController,
+    child: Column(
+      children: const [
+        SectionAnchor(id: 'intro', child: IntroSection()),
+        SectionAnchor(id: 'work', child: WorkSection()),
+        SectionAnchor(id: 'metrics', child: MetricsSection()),
+        SectionAnchor(id: 'contact', child: ContactSection()),
+      ],
+    ),
+  ),
 );
 ```
 
@@ -121,11 +117,11 @@ SectionAnchor(id: 'contact', child: ContactSection()),
 3. Place everything inside `SectionScrollbarLayout`.
 4. The controller measures anchors after layout.
 5. On scroll, the controller resolves the active section and computes:
-    - page progress
-    - progress within the active section
-    - thumb size
-    - thumb offset
-    - active badge payload
+   - page progress
+   - progress within the active section
+   - thumb size
+   - thumb offset
+   - active badge payload
 6. The default scrollbar renders a subtle track, a thumb, and a floating badge
    while scrolling.
 

@@ -101,7 +101,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                             'A custom scrollbar that tells you where you are.',
                         body:
                             'The scrollbar thumb behaves like a scrollbar, while a floating badge tracks the current section label and icon during scroll activity.',
-                        height: 340,
+                        height: 440,
                         accent: Color(0xFF1D4E89),
                       ),
                     ),
@@ -113,7 +113,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                             'Add more labeled stops without turning the page into a rail.',
                         body:
                             'The example now uses more sections so the badge changes more often and the scrollbar feels closer to the portfolio-style interaction you described.',
-                        height: 340,
+                        height: 440,
                         accent: Color(0xFF7E5A3A),
                       ),
                     ),
@@ -125,7 +125,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                             'Keep sections and anchors, replace the segmented navigation overlay.',
                         body:
                             'Each SectionAnchor is measured after layout. The controller resolves the active section and exposes scroll progress, thumb position, and the current badge payload.',
-                        height: 380,
+                        height: 480,
                         accent: Color(0xFF9B4D2E),
                       ),
                     ),
@@ -137,7 +137,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                             'The controller stays focused on geometry, not styling.',
                         body:
                             'Anchors register build contexts, measurement utilities calculate offsets, and the widget layer only consumes the immutable state needed to render the thumb and badge.',
-                        height: 320,
+                        height: 420,
                         accent: Color(0xFF355C7D),
                       ),
                     ),
@@ -149,7 +149,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                             'Use the controller state to drive custom effects.',
                         body:
                             'The default widget shows a rounded label pill, but the package also exposes item fractions, active section progress, and thumb geometry for custom painters and overlays.',
-                        height: 300,
+                        height: 420,
                         accent: Color(0xFF235347),
                       ),
                     ),
@@ -161,7 +161,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                             'Shorter sections make the example feel tighter and more realistic.',
                         body:
                             'With denser content, the scrollbar badge switches more frequently and better demonstrates how the API behaves on long editorial or documentation pages.',
-                        height: 320,
+                        height: 420,
                         accent: Color(0xFF8D5B9A),
                       ),
                     ),
@@ -173,7 +173,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                             'Built for mobile, web, and desktop with pure Flutter.',
                         body:
                             'No platform channels, no native scrollbar APIs, and no external state management. The default experience is intentionally minimal and documentation-friendly.',
-                        height: 360,
+                        height: 460,
                         accent: Color(0xFF5A3E8C),
                       ),
                     ),
@@ -327,7 +327,9 @@ class _ShowcaseSection extends StatelessWidget {
         border: Border.all(color: accent.withValues(alpha: 0.16)),
       ),
       child: Column(
+        spacing: 12,
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             eyebrow,
@@ -337,16 +339,14 @@ class _ShowcaseSection extends StatelessWidget {
               color: accent,
             ),
           ),
-          const SizedBox(height: 20),
           Text(
             title,
-            style: theme.textTheme.headlineMedium?.copyWith(
+            style: theme.textTheme.headlineSmall?.copyWith(
               height: 1.08,
               fontWeight: FontWeight.w800,
               color: const Color(0xFF18211D),
             ),
           ),
-          const SizedBox(height: 20),
           SizedBox(
             width: 560,
             child: Text(
@@ -359,10 +359,11 @@ class _ShowcaseSection extends StatelessWidget {
           ),
           Expanded(
             child: Wrap(
-              spacing: 12,
-              runSpacing: 12,
+              spacing: 2,
+              runSpacing: 6,
               crossAxisAlignment: WrapCrossAlignment.end,
               runAlignment: WrapAlignment.end,
+              alignment: WrapAlignment.spaceBetween,
               children: [
                 _MetricChip(label: 'Height ${height.toStringAsFixed(0)}px'),
                 const _MetricChip(label: 'Custom scrollbar'),
@@ -384,6 +385,8 @@ class _MetricChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.72),
@@ -394,7 +397,12 @@ class _MetricChip extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-        child: Text(label),
+        child: Text(
+          label,
+          style: theme.textTheme.labelSmall?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }
