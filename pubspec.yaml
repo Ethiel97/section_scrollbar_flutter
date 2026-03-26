@@ -1,6 +1,10 @@
 name: section_scrollbar
 description: A section-aware custom scrollbar with a floating current-section label.
 version: 0.1.0+1
+repository: https://github.com/Ethiel97/section_scrollbar_flutter.git
+screenshots:
+  - description: Custom scrollbar with a floating current-section badge while scrolling.
+    path: assets/demo.gif
 
 
 environment:
